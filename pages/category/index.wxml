@@ -1,0 +1,47 @@
+<view>
+  <view class="cate_search">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <!-- 最初始时的搜索框 -->
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="16"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" />
+        </view>
+        <!-- 可编辑时的搜索框 -->
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <!-- 取消搜索 -->
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+  </view>
+  <!-- 右侧 -->
+  <view class='main'>
+    <scroll-view class='left_sroll' scroll-with-animation="true" scroll-y>
+      <block wx:for="{{categoryList}}" wx:for-index="index" wx:key="index">
+        <view class='unit {{left_srcoll_index == index?"alive":""}}' data-index="{{index}}" data-id="{{item.id}}" bindtap="changeLeft_sroll">{{item.cate_name}}</view>
+      </block>
+    </scroll-view>
+  <!--  -->
+    <view class='right'>
+      <scroll-view class='bottom_sroll' scroll-y scroll-with-animation="true">
+        <block wx:for="{{right_scroll_content}}" wx:key="index">
+          <view class='unit' wx:for="{{item.data}}" wx:for-item="itemData" wx:key="dataIndex" wx:if="{{category_id == item.id}}" id="{{item.id}}">
+            <image src='{{itemData.productImg}}' class='productImg'></image>
+            <view class='details'>
+              <view class='title'>{{itemData.title}}</view>
+              <view class='details_content'>
+                <view class='price'>
+                  <text class='newPrice'>¥{{itemData.newPrice}}</text>
+                  <text class='oldPrice'>¥{{itemData.oldPrice}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+</view>

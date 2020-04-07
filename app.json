@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/index",
+    "pages/user/index"
+  ],
+  "window": {
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50,
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Yume",
+    "navigationBarTextStyle": "black"
+    
+  },
+  "tabBar": {
+    "custom": true,
+    "color":"#707070",
+    "selectedColor":"#d81e06",
+    "borderStyle":"black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
